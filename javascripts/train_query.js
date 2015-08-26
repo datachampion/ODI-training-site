@@ -1,6 +1,6 @@
 var mydata = {};
 //mydata.header = "London Waterloo";
-//mydata.summary = "Train departures";
+mydata.summaryPrefix = "Live train departures on ";
 
 // Get a json serialisation of our data into a variable called json_string
 //var json_string = JSON.stringify(mydata);
@@ -28,7 +28,7 @@ $.getJSON(mydata.url, function(data) {
   summary = data.date;
 
   $('header').html(station_name);
-  $('summary').html(summary);
+  $('summary').html(mydata.summaryPrefix + summary);
 
   items = data.departures.all;
   $.each(items, function(index,item) {
